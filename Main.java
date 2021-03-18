@@ -110,17 +110,6 @@ public class Main {
 
             System.out.println("Dato: " + element);
         }
-
-      /*  System.out.println("-------------------------------------");
-        System.out.println("Recorrido inverso con datos agregados");
-
-        it2 = list.getReverseIterator();
-
-        while(it2.hasNext()){
-            int element = it2.next();
-
-            System.out.println("Dato: " + element);
-        }*/
     }
 }
 
