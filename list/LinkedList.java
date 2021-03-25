@@ -1,11 +1,13 @@
 package uaslp.ingenieria.labs.list;
 
-public class LinkedList<G> {
+public class LinkedList<G> implements List<G>{
 
     private Node<G> head;
     private Node<G> tail;
     private int size;
 
+
+    @Override
     public void add(G data){
         Node<G> node = new Node<>(data);
 
@@ -23,10 +25,12 @@ public class LinkedList<G> {
         size++;
     }
 
+    @Override
     public int getSize() {
         return size;
     }
 
+    @Override
     public G get(int index){
         Node<G> currentNode = head;
         int currentIndex = 0;
@@ -39,6 +43,7 @@ public class LinkedList<G> {
         return currentNode.getData();
     }
 
+    @Override
     public void delete(int index){
         Node<G> currentNode = head;
         int currentIndex = 0;
@@ -75,17 +80,20 @@ public class LinkedList<G> {
         }
     }
 
-    public Iterator getIterator(){
-        return new Iterator();
+    @Override
+    public ForwardIterator getIterator(){
+        return new ForwardIterator();
     }
 
+    @Override
     public ReverseIterator getReverseIterator(){
         return new ReverseIterator();
     }
 
-    public void insert(G data, Position position, Iterator it){
+    @Override
+    public void insert(G data, Position position, Iterator<G> it){
         Node<G> newNode = new Node<G>(data);
-        Node<G> currentNode = it.getCurrentNode();
+        Node<G> currentNode = ((ForwardIterator)it).getCurrentNode();
 
         size++;
 
@@ -114,14 +122,14 @@ public class LinkedList<G> {
 
         }
 
-    public class Iterator {
+    public class ForwardIterator implements Iterator<G>{
         private Node<G> currentNode;
 
-        public Iterator() {
+        public ForwardIterator() {
             this.currentNode = head;
         }
 
-        public Iterator(Iterator iterator){
+        public ForwardIterator(ForwardIterator iterator){
             currentNode = iterator.currentNode;
         }
 
@@ -142,7 +150,7 @@ public class LinkedList<G> {
         }
     }
 
-    public class ReverseIterator {
+    public class ReverseIterator implements Iterator<G>{
         private Node<G> currentNode;
 
         public ReverseIterator() {

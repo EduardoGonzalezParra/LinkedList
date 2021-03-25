@@ -1,14 +1,16 @@
 package uaslp.ingenieria.labs;
 
+import uaslp.ingenieria.labs.list.Iterator;
 import uaslp.ingenieria.labs.list.LinkedList;
+import uaslp.ingenieria.labs.list.List;
 import uaslp.ingenieria.labs.list.Position;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<>();
-        LinkedList<Float> list2 = new LinkedList<>();
-        LinkedList<Character> list3 = new LinkedList<>();
-        LinkedList<String> list4 = new LinkedList<>();
+        List<Integer> list = new LinkedList<>();
+        List<Float> list2 = new LinkedList<>();
+        List<Character> list3 = new LinkedList<>();
+        List<String> list4 = new LinkedList<>();
 
         list.add(1);
         list.add(4);
@@ -30,11 +32,11 @@ public class Main {
         list4.add("A...");
         list4.add("Objetos");
 
-        LinkedList<Integer>.Iterator it = list.getIterator();
-        LinkedList<Integer>.ReverseIterator it2 = list.getReverseIterator();
-        LinkedList<Float>.Iterator itFloat = list2.getIterator();
-        LinkedList<Character>.Iterator itChar = list3.getIterator();
-        LinkedList<String>.Iterator itString = list4.getIterator();
+        Iterator<Integer> it = list.getIterator();
+        Iterator<Integer> it2 = list.getReverseIterator();
+        Iterator<Float> itFloat = list2.getIterator();
+        Iterator<Character> itChar = list3.getIterator();
+        Iterator<String> itString = list4.getIterator();
 
         System.out.println("El tamaño de la lista es: " + list.getSize());
 
@@ -51,23 +53,23 @@ public class Main {
         System.out.println("-------------------------------------");
         System.out.println("Recorrido normal:");
 
-        while(it.hasNext()){
-            LinkedList<Integer>.Iterator backupIt = list.new Iterator(it);
-            int element = it.next();
+        //while(it.hasNext()){
+        //    LinkedList.ForwardIterator backupIt = list.new ForwardIterator(it);
+        //    int element = it.next();
+//
+        //    if(element == 3){
+        //        list.insert(10, Position.BEFORE, backupIt);
+        //    }
+//
+        //    if(element == 7){
+        //        list.insert(15, Position.AFTER, backupIt);
+        //    }
+//
+        //    System.out.println("Dato: " + element);
+        //}
 
-            if(element == 3){
-                list.insert(10, Position.BEFORE, backupIt);
-            }
-
-            if(element == 7){
-                list.insert(15, Position.AFTER, backupIt);
-            }
-
-            System.out.println("Dato: " + element);
-        }
-
-        System.out.println("-------------------------------------");
-        System.out.println("Lista con datos agregados:");
+        //System.out.println("-------------------------------------");
+        //System.out.println("Lista con datos agregados:");
 
         it = list.getIterator();
 
