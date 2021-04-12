@@ -1,16 +1,13 @@
 package uaslp.ingenieria.labs;
 
-import uaslp.ingenieria.labs.list.Iterator;
-import uaslp.ingenieria.labs.list.LinkedList;
-import uaslp.ingenieria.labs.list.List;
-import uaslp.ingenieria.labs.list.Position;
+import uaslp.ingenieria.labs.list.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> list = new LinkedList<>();
-        List<Float> list2 = new LinkedList<>();
-        List<Character> list3 = new LinkedList<>();
-        List<String> list4 = new LinkedList<>();
+        List<Integer> list = new ArrayList<>();
+        List<Float> list2 = new ArrayList<>();
+        List<Character> list3 = new ArrayList<>();
+        List<String> list4 = new ArrayList<>();
 
         list.add(1);
         list.add(4);
