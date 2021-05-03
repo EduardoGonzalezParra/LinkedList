@@ -4,10 +4,10 @@ import uaslp.ingenieria.labs.list.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        List<Float> list2 = new ArrayList<>();
-        List<Character> list3 = new ArrayList<>();
-        List<String> list4 = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
+        List<Float> list2 = new LinkedList<>();
+        List<Character> list3 = new LinkedList<>();
+        List<String> list4 = new LinkedList<>();
 
         list.add(1);
         list.add(4);
