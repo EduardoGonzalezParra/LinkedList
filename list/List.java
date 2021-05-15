@@ -6,9 +6,9 @@ public interface List<T> {
 
     int getSize();
 
-    T get(int index);
+    T get(int index) throws MyIndexOutOfBoundException;
 
-    void delete(int index);
+    void delete(int index) throws MyIndexOutOfBoundException;
 
     Iterator<T> getIterator();
 

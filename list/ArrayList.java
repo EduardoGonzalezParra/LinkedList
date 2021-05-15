@@ -1,6 +1,6 @@
 package uaslp.ingenieria.labs.list;
 
-public class ArrayList<H> implements List<H>{
+public class ArrayList<H> implements List<H> {
     private Object array[];
     int size;
 
@@ -11,14 +11,12 @@ public class ArrayList<H> implements List<H>{
 
     @Override
     public void add(H data) {
-        if(size < array.length){
-            array[size++] = data;
-        }else{
-            Object arrayAux[] = new Object[array.length*2];
+        if (size >= array.length) {
+            Object arrayAux[] = new Object[array.length * 2];
             System.arraycopy(array, 0, arrayAux, 0, array.length);
             array = arrayAux;
-            array[size++] = data;
         }
+        array[size++] = data;
     }
 
     @Override
@@ -27,9 +25,11 @@ public class ArrayList<H> implements List<H>{
     }
 
     @Override
-    public void delete(int index) {
-        for(int i = index + 1; i < size ; i++ ){
-            array[i-1] = array[i];
+    public void delete(int index) throws MyIndexOutOfBoundException {
+        if (size - (index + 1) >= 0) {
+            System.arraycopy(array, index + 1, array, index + 1 - 1, size - (index + 1));
+        }else {
+            throw new MyIndexOutOfBoundException();
         }
         size--;
     }

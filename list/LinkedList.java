@@ -49,16 +49,10 @@ public class LinkedList<G> implements List<G>{
         int currentIndex = 0;
 
         if(index < 0  || index >= size){
-            return;
+            throw new IndexOutOfBoundsException();
         }
 
         size--;
-
-        if(size == 0){
-            head = null;
-            tail = null;
-            return;
-        }
 
         if(index == 0){
             head = head.getNext();
@@ -106,7 +100,7 @@ public class LinkedList<G> implements List<G>{
                 newNode.setPrevious(currentNode);
                 newNode.getNext().setPrevious(newNode);
             }else {
-                newNode.setNext(null);
+                tail = newNode;
             }
         }else if(position == Position.BEFORE){
             newNode.setPrevious(currentNode.getPrevious());
@@ -116,7 +110,7 @@ public class LinkedList<G> implements List<G>{
             if(newNode.getPrevious() != null){
                 newNode.getPrevious().setNext(newNode);
             }else {
-                newNode.setPrevious(null);
+                head = newNode;
             }
         }
 
@@ -185,10 +179,6 @@ public class LinkedList<G> implements List<G>{
 
         public G getData() {
             return data;
-        }
-
-        public void setData(G data) {
-            this.data = data;
         }
 
         public Node<G> getNext() {
